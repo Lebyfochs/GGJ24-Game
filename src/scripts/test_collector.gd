@@ -21,7 +21,7 @@ func _process(delta):
 		
 	
 
-
+#If player touching collector then collect gas.
 func _on_body_entered(body):
 	if(body.name == "CharacterBody2D"):
 			collecting = true

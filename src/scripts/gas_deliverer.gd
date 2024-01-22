@@ -14,7 +14,7 @@ func _process(delta):
 	if (delivering == true):
 		game_manager.give_gas()
 
-
+#Delivering gas upon collision.
 func _on_body_entered(body):
 	delivering = true
 	
