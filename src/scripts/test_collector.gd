@@ -16,7 +16,7 @@ func _process(delta):
 	if collecting == true:
 		game_manager.add_gas()
 		
-	if game_manager.player_gas >=50:
+	if game_manager.player_gas >=game_manager.player_gas_MAX:
 		collecting = false
 		
 	

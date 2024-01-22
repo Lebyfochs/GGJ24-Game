@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bky3qag15wr2d"]
+[gd_scene load_steps=13 format=3 uid="uid://bky3qag15wr2d"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_a5i8f"]
 [ext_resource type="PackedScene" uid="uid://crxqjohtc5j1f" path="res://scenes/player.tscn" id="2_2y6v8"]
 [ext_resource type="Texture2D" uid="uid://c1rk7nsgpc8qp" path="res://assets/floortiles.png" id="2_bbvva"]
 [ext_resource type="PackedScene" uid="uid://dyxx6dgm7dmx" path="res://scenes/test_collector.tscn" id="4_043a7"]
 [ext_resource type="PackedScene" uid="uid://3hlj2k2yapwx" path="res://scenes/gas_deliverer.tscn" id="5_ueyq0"]
+[ext_resource type="PackedScene" uid="uid://msh1jbmstvlt" path="res://scenes/test_enemy.tscn" id="6_r15oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02o7j"]
 texture = ExtResource("2_bbvva")
@@ -1381,5 +1382,8 @@ position = Vector2(157, 459)
 
 [node name="GasDeliver" parent="." instance=ExtResource("5_ueyq0")]
 position = Vector2(1107, 233)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("6_r15oc")]
+position = Vector2(581, 271)
 
 [connection signal="body_exited" from="GasCollector" to="GasCollector" method="_on_body_exited"]
