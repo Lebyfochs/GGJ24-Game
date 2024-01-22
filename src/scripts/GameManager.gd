@@ -26,7 +26,6 @@ func _ready():
 	player_gas_MAX = 50
 	player_score = 0
 	
-	
 	king_gas = 20
 	king_gas_MAX = 50
 	current_game_state = GameStates.PLAYING
@@ -50,8 +49,6 @@ func _process(delta):
 		GameStates.GAMEOVER:
 			get_tree().quit()	
 	
-	
-
 #For collecting gas.
 func add_gas():
 	player_gas += 1

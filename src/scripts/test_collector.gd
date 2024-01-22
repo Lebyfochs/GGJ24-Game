@@ -9,8 +9,6 @@ func _ready():
 	
 	collecting = false;
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if collecting == true:
@@ -26,7 +24,6 @@ func _on_body_entered(body):
 	if(body.name == "CharacterBody2D"):
 			collecting = true
 		
-
 
 func _on_body_exited(body):
 	collecting = false
