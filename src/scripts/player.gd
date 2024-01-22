@@ -13,7 +13,7 @@ enum player_states
 
 #var current_state = player_states.IDLE
 
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

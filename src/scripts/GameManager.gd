@@ -15,4 +15,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	print(player_gas)
+
+func add_gas():
+	player_gas += 1
+	
+func give_gas():
+	if player_gas > 0 && king_gas < 50:
+		king_gas += 1
+		player_gas -= 1
