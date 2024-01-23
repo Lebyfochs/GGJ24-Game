@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+
 @onready var _animation_player = $AnimatedSprite2D
 @onready var game_manager = $"../GameManager"
+@onready var player_camera = $Camera2D
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
@@ -20,6 +22,7 @@ func _physics_process(delta):
 				game_manager.player_gas -= 2
 	
 	# Add the gravity.
+	#Implement Coyote Time.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		_animation_player.play("jump")
@@ -44,7 +47,9 @@ func _physics_process(delta):
 		_animation_player.play("idle")
 		
 	move_and_slide()
-
+	
+	player_camera.set_limit(SIDE_TOP, -80)
+	player_camera.set_limit(SIDE_LEFT, -5)
 
 #Movement function.	
 func player_move(DIR):
