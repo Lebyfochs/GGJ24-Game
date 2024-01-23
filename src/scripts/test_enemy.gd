@@ -10,3 +10,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_animation_player.play("idle")
+
+
+#Destroys enemy object.
+func enemy_death():
+	queue_free()
+

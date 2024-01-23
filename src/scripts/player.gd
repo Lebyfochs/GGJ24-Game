@@ -5,8 +5,8 @@ extends CharacterBody2D
 @onready var game_manager = $"../GameManager"
 @onready var player_camera = $Camera2D
 
-const SPEED = 400.0
-const JUMP_VELOCITY = -500.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -450.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,6 +20,9 @@ func _physics_process(delta):
 		if collision.get_collider().name == "RigidBody2D":
 			if (game_manager.player_gas > 0):
 				game_manager.player_gas -= 2
+		
+#		if collision.get_collider().name == "GasCollector":
+#			pass
 	
 	# Add the gravity.
 	#Implement Coyote Time.

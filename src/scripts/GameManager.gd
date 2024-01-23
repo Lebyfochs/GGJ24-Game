@@ -39,7 +39,7 @@ func _process(delta):
 	
 	match current_game_state:
 		GameStates.PLAYING:
-			print(player_gas)
+			#print(player_gas)
 			king_gas -= 0.01
 			
 			if player_gas > 0:

@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyxx6dgm7dmx"]
 
-[ext_resource type="Texture2D" uid="uid://broans1ycpcax" path="res://assets/PlayerTestGodot.png" id="1_10m55"]
 [ext_resource type="Script" path="res://scripts/test_collector.gd" id="1_tp7um"]
+[ext_resource type="Texture2D" uid="uid://br8fdw14nlumw" path="res://assets/gas_collector_sprite.png" id="2_eeyf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db4bm"]
-size = Vector2(112, 96)
+size = Vector2(112, 136)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_tp7um")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_db4bm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_10m55")
+scale = Vector2(2, 2)
+texture = ExtResource("2_eeyf5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
