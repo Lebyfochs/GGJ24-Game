@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sqfqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb44a"]
-size = Vector2(64, 64)
+size = Vector2(56, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8t7a"]
 atlas = ExtResource("1_2xu3l")
@@ -95,9 +95,12 @@ animations = [{
 script = ExtResource("1_sqfqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_yb44a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8ca4l")
 animation = &"idle"
 frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -58,3 +58,6 @@ func give_gas():
 	if player_gas > 0 && king_gas < king_gas_MAX:
 		king_gas += 1
 		player_gas -= 1
+		
+func up_score(score_value):
+	player_score += score_value		
