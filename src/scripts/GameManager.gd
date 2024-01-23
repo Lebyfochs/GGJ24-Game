@@ -2,6 +2,7 @@ extends Node
 
 #@onready var timer = $Timer
 
+
 enum GameStates
 {
 	MENU,
@@ -40,7 +41,10 @@ func _process(_delta):
 	
 	match current_game_state:
 		GameStates.PLAYING:
-			print(player_score)
+			print(king_gas)
+			
+			
+			
 			king_gas -= 0.01
 			
 			if player_gas > 0:
@@ -48,7 +52,8 @@ func _process(_delta):
 				
 			
 		GameStates.GAMEOVER:
-			get_tree().paused = true
+			#get_tree().paused = true
+			get_tree().quit()
 	
 #For collecting gas.
 func add_gas():

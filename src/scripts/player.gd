@@ -44,10 +44,14 @@ func _physics_process(delta):
 	if direction:
 		player_move(direction)
 		
+		if direction <= -1:
+			_animation_player.flip_h = true
+		
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		_animation_player.play("idle")
+		_animation_player.flip_h = false
 		
 	move_and_slide()
 	
