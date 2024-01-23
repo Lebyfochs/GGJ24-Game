@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bi6w456ieogwi" path="res://assets/walltile.png" id="1_vvlj2"]
 [ext_resource type="PackedScene" uid="uid://crxqjohtc5j1f" path="res://scenes/player.tscn" id="2_2y6v8"]
 [ext_resource type="Texture2D" uid="uid://c1rk7nsgpc8qp" path="res://assets/floortiles.png" id="2_bbvva"]
-[ext_resource type="PackedScene" uid="uid://25v1h3fltttm" path="res://scenes/game_ui.tscn" id="3_oq6dp"]
+[ext_resource type="PackedScene" uid="uid://20nqrhidqapr" path="res://scenes/game_ui.tscn" id="3_oq6dp"]
 [ext_resource type="PackedScene" uid="uid://dyxx6dgm7dmx" path="res://scenes/test_collector.tscn" id="4_043a7"]
 [ext_resource type="PackedScene" uid="uid://3hlj2k2yapwx" path="res://scenes/gas_deliverer.tscn" id="5_ueyq0"]
 [ext_resource type="PackedScene" uid="uid://msh1jbmstvlt" path="res://scenes/test_enemy.tscn" id="6_r15oc"]
@@ -1115,6 +1115,8 @@ sources/0 = SubResource("TileSetAtlasSource_4cily")
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_a5i8f")
 
+[node name="Timer" type="Timer" parent="GameManager"]
+
 [node name="GameUI" parent="." instance=ExtResource("3_oq6dp")]
 
 [node name="BGCanvas" type="CanvasLayer" parent="."]
@@ -1149,6 +1151,6 @@ position = Vector2(160, 424)
 position = Vector2(2561, 382)
 
 [node name="RigidBody2D" parent="." instance=ExtResource("6_r15oc")]
-position = Vector2(846, 239)
+position = Vector2(850, 120)
 
 [connection signal="body_exited" from="GasCollector" to="GasCollector" method="_on_body_exited"]

@@ -1,5 +1,6 @@
 extends Node
 
+#@onready var timer = $Timer
 
 enum GameStates
 {
@@ -39,7 +40,7 @@ func _process(_delta):
 	
 	match current_game_state:
 		GameStates.PLAYING:
-			#print(player_gas)
+			print(player_score)
 			king_gas -= 0.01
 			
 			if player_gas > 0:
@@ -47,7 +48,7 @@ func _process(_delta):
 				
 			
 		GameStates.GAMEOVER:
-			get_tree().quit()	
+			get_tree().paused = true
 	
 #For collecting gas.
 func add_gas():
@@ -58,6 +59,9 @@ func give_gas():
 	if player_gas > 0 && king_gas < king_gas_MAX:
 		king_gas += 0.5
 		player_gas -= 1
+		
+	if king_gas >= king_gas_MAX:
+		up_score(1)	
 		
 func up_score(score_value):
 	player_score += score_value		

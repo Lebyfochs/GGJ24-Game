@@ -18,8 +18,8 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision != null:
 		if collision.get_collider().name == "RigidBody2D":
-			if (game_manager.player_gas > 0):
-				game_manager.player_gas -= 2
+			queue_free()
+			game_manager.current_game_state = game_manager.GameStates.GAMEOVER
 		
 #		if collision.get_collider().name == "GasCollector":
 #			pass
@@ -53,6 +53,7 @@ func _physics_process(delta):
 	
 	player_camera.set_limit(SIDE_TOP, -80)
 	player_camera.set_limit(SIDE_LEFT, -5)
+	player_camera.set_limit(SIDE_RIGHT, 2750)
 
 #Movement function.	
 func player_move(DIR):
