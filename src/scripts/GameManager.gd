@@ -32,7 +32,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if king_gas <=0:
 		current_game_state = GameStates.GAMEOVER
@@ -43,20 +43,20 @@ func _process(delta):
 			king_gas -= 0.01
 			
 			if player_gas > 0:
-				#player_gas -= 0.01
-				pass
+				player_gas -= 0.01
+				
 			
 		GameStates.GAMEOVER:
 			get_tree().quit()	
 	
 #For collecting gas.
 func add_gas():
-	player_gas += 1
+	player_gas += 0.5
 	
 	#Gives the King gas if he doesn't already have max amount.
 func give_gas():
 	if player_gas > 0 && king_gas < king_gas_MAX:
-		king_gas += 1
+		king_gas += 0.5
 		player_gas -= 1
 		
 func up_score(score_value):

@@ -10,7 +10,7 @@ func _ready():
 	collecting = false;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if collecting == true:
 		game_manager.add_gas()
 		
@@ -25,5 +25,5 @@ func _on_body_entered(body):
 			collecting = true
 		
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	collecting = false
