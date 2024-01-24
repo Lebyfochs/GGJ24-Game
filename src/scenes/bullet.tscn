@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2pfm3v2v58ds"]
+[gd_scene load_steps=4 format=3 uid="uid://c26iuvn7lvapy"]
 
 [ext_resource type="Texture2D" uid="uid://6tdridfol5fm" path="res://assets/gascloud.png" id="1_p8a88"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="2_psb0d"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7wh5x"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjqag"]
 
-[node name="Bullet" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
+[node name="Bullet" type="RigidBody2D"]
+script = ExtResource("2_psb0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_p8a88")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hjqag")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(4, 4)
-shape = SubResource("CircleShape2D_7wh5x")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
