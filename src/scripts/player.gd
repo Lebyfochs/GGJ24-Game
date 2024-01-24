@@ -8,6 +8,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 
+const BULLET_PATH = preload("res://scenes/bullet.tscn")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var body
@@ -38,6 +40,10 @@ func _physics_process(delta):
 	if Input.is_action_just_released("jump"):
 		_animation_player.play("jump")
 		
+		
+		
+	
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
@@ -47,11 +53,15 @@ func _physics_process(delta):
 		if direction <= -1:
 			_animation_player.flip_h = true
 		
+	elif Input.is_action_just_pressed("attack"):
+		player_attack(Vector2(100,100))		
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		_animation_player.play("idle")
 		_animation_player.flip_h = false
+		
+		
 		
 	move_and_slide()
 	
@@ -65,6 +75,8 @@ func player_move(DIR):
 	_animation_player.play("run")	
 	
 #Player attack function, shoots the laughing gas.	
-func player_attack():
-	pass		
+func player_attack(bullet_DIR):
+	var bullet = BULLET_PATH.instantiate()
+	bullet.position = bullet_DIR
+	add_child(bullet)
 			

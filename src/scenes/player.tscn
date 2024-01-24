@@ -104,3 +104,5 @@ animation = &"idle"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
