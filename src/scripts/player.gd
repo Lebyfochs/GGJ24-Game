@@ -5,10 +5,12 @@ extends CharacterBody2D
 @onready var game_manager = $"../GameManager"
 @onready var player_camera = $Camera2D
 
+#@export var bullet : PackedScene
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 
-const BULLET_PATH = preload("res://scenes/bullet.tscn")
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -53,8 +55,8 @@ func _physics_process(delta):
 		if direction <= -1:
 			_animation_player.flip_h = true
 		
-	elif Input.is_action_just_pressed("attack"):
-		player_attack(Vector2(100,100))		
+	#elif Input.is_action_just_pressed("attack"):
+		#player_attack(Vector2(0,4))	
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -74,9 +76,8 @@ func player_move(DIR):
 	velocity.x = DIR * SPEED
 	_animation_player.play("run")	
 	
-#Player attack function, shoots the laughing gas.	
-func player_attack(bullet_DIR):
-	var bullet = BULLET_PATH.instantiate()
-	bullet.position = bullet_DIR
-	add_child(bullet)
+
+
+	
+	
 			

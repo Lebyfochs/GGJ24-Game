@@ -16,3 +16,8 @@ func _process(_delta):
 func enemy_death():
 	queue_free()
 
+
+
+func _on_body_entered(body):
+	if (body.name == "Bullet"):
+		enemy_death() 

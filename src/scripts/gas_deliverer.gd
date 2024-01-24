@@ -16,7 +16,8 @@ func _process(_delta):
 
 #Delivering gas upon collision.
 func _on_body_entered(body):
-	delivering = true
+	if (body.name == "Player"):
+		delivering = true
 	
 
 
