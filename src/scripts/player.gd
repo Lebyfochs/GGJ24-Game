@@ -22,12 +22,14 @@ var body
 
 func _physics_process(delta):
 	
+	
+	
 	#Collision with enemy
-	#var collision = move_and_collide(velocity * delta)
-	#if collision != null:
-		#if collision.get_collider().name == "RigidBody2D":
-			#queue_free()
-			#game_manager.current_game_state = game_manager.GameStates.GAMEOVER
+	var collision = move_and_collide(velocity * delta)
+	if collision != null:
+		if collision.get_collider().name == "DeathFloor":
+			queue_free()
+			game_manager.current_game_state = game_manager.GameStates.GAMEOVER
 		
 	# Add the gravity.
 	#Implement Coyote Time.
