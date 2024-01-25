@@ -22,8 +22,8 @@ var current_game_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
 	
+	$Timer.start()
 	player_gas = 0
 	player_gas_MAX = 50
 	player_score = 0
@@ -41,7 +41,7 @@ func _process(_delta):
 	
 	match current_game_state:
 		GameStates.PLAYING:
-			print(king_gas)
+			#print(king_gas)
 			
 			
 			
@@ -52,8 +52,8 @@ func _process(_delta):
 				
 			
 		GameStates.GAMEOVER:
-			#get_tree().paused = true
-			get_tree().quit()
+			get_tree().paused = true
+			
 	
 #For collecting gas.
 func add_gas():
@@ -70,3 +70,7 @@ func give_gas():
 		
 func up_score(score_value):
 	player_score += score_value		
+
+
+func _on_timer_timeout():
+	print("Hello")

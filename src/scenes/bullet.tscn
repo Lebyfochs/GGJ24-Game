@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c26iuvn7lvapy"]
+[gd_scene load_steps=4 format=3 uid="uid://c7xw6j8c6sa8m"]
 
 [ext_resource type="Texture2D" uid="uid://6tdridfol5fm" path="res://assets/gascloud.png" id="1_p8a88"]
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="2_psb0d"]
@@ -12,6 +12,7 @@ script = ExtResource("2_psb0d")
 texture = ExtResource("1_p8a88")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_hjqag")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

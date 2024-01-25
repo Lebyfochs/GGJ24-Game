@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var game_manager = $GameManager
+@onready var game_manager = $"../GameManager"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
