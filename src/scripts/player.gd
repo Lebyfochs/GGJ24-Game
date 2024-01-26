@@ -5,24 +5,19 @@ extends CharacterBody2D
 @onready var game_manager = $"../GameManager"
 @onready var player_camera = $Camera2D
 
+
 #@export var bullet : PackedScene
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 
-
-
-
 var BULLET_PATH = preload("res://scenes/bullet.tscn")
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var body
+
 
 func _physics_process(delta):
-	
-	
 	
 	#Collision with enemy
 	var collision = move_and_collide(velocity * delta)
@@ -34,6 +29,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	#Implement Coyote Time.
 	if not is_on_floor():
+		
+		
 		velocity.y += gravity * delta
 		_animation_player.play("jump")
 		
@@ -44,10 +41,6 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_released("jump"):
 		_animation_player.play("jump")
-		
-		
-		
-	
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -64,8 +57,6 @@ func _physics_process(delta):
 		_animation_player.play("idle")
 		_animation_player.flip_h = false
 		
-		
-		
 	move_and_slide()
 	
 	player_camera.set_limit(SIDE_TOP, -80)
@@ -76,7 +67,8 @@ func _physics_process(delta):
 func player_move(DIR):
 	velocity.x = DIR * SPEED
 	_animation_player.play("run")	
+
+
+
 	
 	
-	
-			

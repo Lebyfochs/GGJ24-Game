@@ -18,6 +18,8 @@ var king_gas
 var king_gas_MAX
 var gas_depleter
 
+var time_add_up
+
 var current_game_state
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +29,9 @@ func _ready():
 	player_gas = 0
 	player_gas_MAX = 50
 	player_score = 0
+	gas_depleter = 0.01
+	
+	time_add_up = 0
 	
 	king_gas = 20
 	king_gas_MAX = 50
@@ -41,14 +46,16 @@ func _process(_delta):
 	
 	match current_game_state:
 		GameStates.PLAYING:
-			#print(king_gas)
 			
-			
-			
-			king_gas -= 0.01
+			king_gas -= gas_depleter
 			
 			if player_gas > 0:
 				player_gas -= 0.01
+				
+			if time_add_up == 30:
+				time_add_up = 0	
+				gas_depleter += 0.005
+				
 				
 			
 		GameStates.GAMEOVER:
@@ -73,4 +80,5 @@ func up_score(score_value):
 
 
 func _on_timer_timeout():
-	print("Hello")
+	time_add_up += 1
+	print(time_add_up)
