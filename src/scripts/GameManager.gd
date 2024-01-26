@@ -35,7 +35,7 @@ func _ready():
 	
 	king_gas = 20
 	king_gas_MAX = 50
-	current_game_state = GameStates.PLAYING
+	current_game_state = GameStates.MENU
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,7 +45,14 @@ func _process(_delta):
 		current_game_state = GameStates.GAMEOVER
 	
 	match current_game_state:
+		
+		GameStates.MENU:
+			if Input.is_action_just_pressed("press_play"):
+				current_game_state = GameStates.PLAYING
+		
 		GameStates.PLAYING:
+			
+			get_tree().paused = false
 			
 			king_gas -= gas_depleter
 			
@@ -53,13 +60,12 @@ func _process(_delta):
 				player_gas -= 0.01
 				
 			if time_add_up == 30:
-				time_add_up = 0	
-				gas_depleter += 0.005
-				
+				difficulty_up()
 				
 			
 		GameStates.GAMEOVER:
 			get_tree().paused = true
+			
 			
 	
 #For collecting gas.
@@ -82,3 +88,8 @@ func up_score(score_value):
 func _on_timer_timeout():
 	time_add_up += 1
 	print(time_add_up)
+	
+func difficulty_up():
+	time_add_up = 0	
+	if (gas_depleter <= 0.5):
+		gas_depleter += 0.005
