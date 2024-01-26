@@ -1112,8 +1112,8 @@ texture = ExtResource("2_bbvva")
 [sub_resource type="TileSet" id="TileSet_e6hyl"]
 sources/0 = SubResource("TileSetAtlasSource_4cily")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hachk"]
-size = Vector2(695.5, 49.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln07s"]
+size = Vector2(2763, 204)
 
 [node name="MainScene" type="Node2D"]
 
@@ -1162,12 +1162,12 @@ position = Vector2(160, 424)
 [node name="GasDeliver" parent="." instance=ExtResource("5_ueyq0")]
 position = Vector2(2561, 382)
 
-[node name="DeathFloor" type="Area2D" parent="."]
+[node name="DeathFloor" type="StaticBody2D" parent="."]
+disable_mode = 2
 
-[node name="DeathFloorCOL" type="CollisionShape2D" parent="DeathFloor"]
-position = Vector2(1363, 684)
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_hachk")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathFloor"]
+position = Vector2(1376.5, 684)
+shape = SubResource("RectangleShape2D_ln07s")
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
 [connection signal="body_exited" from="GasCollector" to="GasCollector" method="_on_body_exited"]
